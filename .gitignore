@@ -1,0 +1,25 @@
+# Ignore build output directories
+**/bin/
+**/obj/
+
+# Rider files
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code files
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# NuGet packages
+packages/
+*.nupkg
+
