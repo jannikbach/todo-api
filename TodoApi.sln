@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "todo-api.core", "src\todo-api.core\todo-api.core.fsproj", "{5069571E-4BA1-4808-A179-06997AED4CE4}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TodoApi.Core", "src\TodoApi.Core\TodoApi.Core.fsproj", "{5069571E-4BA1-4808-A179-06997AED4CE4}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "todo-api.application", "src\todo-api.application\todo-api.application.fsproj", "{32226C50-C4B6-4B02-9890-25EDA9600800}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TodoApi.Application", "src\TodoApi.Application\TodoApi.Application.fsproj", "{32226C50-C4B6-4B02-9890-25EDA9600800}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "todo-api.infrastructure", "src\todo-api.infrastructure\todo-api.infrastructure.fsproj", "{C866328D-55FB-43DA-84E9-8297BD39ED2D}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TodoApi.Infrastructure", "src\TodoApi.Infrastructure\TodoApi.Infrastructure.fsproj", "{C866328D-55FB-43DA-84E9-8297BD39ED2D}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "todo-api.web", "src\todo-api.web\todo-api.web.fsproj", "{4392A82C-932C-47BD-85CE-1FE169902C2A}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TodoApi.Web", "src\TodoApi.Web\TodoApi.Web.fsproj", "{4392A82C-932C-47BD-85CE-1FE169902C2A}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "todo-api.tests", "tests\todo-api.tests\todo-api.tests.fsproj", "{B22F3B55-972E-4B85-BCE7-EBF3AED6AC22}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TodoApi.tests", "tests\TodoApi.Tests\TodoApi.Tests.fsproj", "{B22F3B55-972E-4B85-BCE7-EBF3AED6AC22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

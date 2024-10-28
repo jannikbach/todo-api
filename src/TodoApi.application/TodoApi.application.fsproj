@@ -2,17 +2,17 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <RootNamespace>todo_api.infrastructure</RootNamespace>
+        <RootNamespace>TodoApi.Application</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Library.fs"/>
+        <Compile Include="ITodoService.fs" />
+        <Compile Include="TodoService.fs" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\todo-api.application\todo-api.application.fsproj" />
-      <ProjectReference Include="..\todo-api.core\todo-api.core.fsproj" />
+      <ProjectReference Include="..\TodoApi.Core\TodoApi.Core.fsproj" />
     </ItemGroup>
 
 </Project>

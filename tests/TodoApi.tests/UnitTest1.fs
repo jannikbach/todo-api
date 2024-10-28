@@ -1,4 +1,4 @@
-module todo_api.tests
+module TodoApi.tests
 
 open NUnit.Framework
 

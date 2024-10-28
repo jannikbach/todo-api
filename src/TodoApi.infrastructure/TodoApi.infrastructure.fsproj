@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <RootNamespace>TodoApi.Infrastructure</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TodoApi.Application\TodoApi.Application.fsproj" />
+      <ProjectReference Include="..\TodoApi.Core\TodoApi.Core.fsproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="TodoRepository.fs" />
+      <None Include="Data\todo.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+</Project>

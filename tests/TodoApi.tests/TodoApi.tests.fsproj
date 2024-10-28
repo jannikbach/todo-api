@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <RootNamespace>todo_api.tests</RootNamespace>
+        <RootNamespace>TodoApi.tests</RootNamespace>
 
         <IsPackable>false</IsPackable>
         <GenerateProgramFile>false</GenerateProgramFile>
@@ -23,8 +23,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\todo-api.application\todo-api.application.fsproj" />
-      <ProjectReference Include="..\..\src\todo-api.core\todo-api.core.fsproj" />
+      <ProjectReference Include="..\..\src\TodoApi.Application\TodoApi.Application.fsproj" />
+      <ProjectReference Include="..\..\src\TodoApi.Core\TodoApi.Core.fsproj" />
     </ItemGroup>
 
 </Project>
