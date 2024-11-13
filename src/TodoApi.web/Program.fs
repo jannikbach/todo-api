@@ -60,8 +60,8 @@ let webApp =
             choose [
                 route "/" >=> indexHandler "todo"
         //         routef "/hello/%s" indexHandler
-        //         route "/todo" >=> getTodos //header um alle, nur erledigt, oder noch offen zu bekommen?
-        //         routef "/todo/%O" getTodoById 
+                route "/todo" >=> getTodos //header um alle, nur erledigt, oder noch offen zu bekommen?
+                routef "/todo/%O" getTodoById 
         ]
         POST >=>
             choose [

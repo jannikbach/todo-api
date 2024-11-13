@@ -13,7 +13,7 @@
 
     <ItemGroup>
       <Compile Include="TodoRepository.fs" />
-      <None Include="Data\todo.json" />
+      <Folder Include="Data\" />
     </ItemGroup>
 
     <ItemGroup>

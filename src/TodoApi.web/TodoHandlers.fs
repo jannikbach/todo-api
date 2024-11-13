@@ -23,20 +23,21 @@ module TodoHandlers =
         fun (next : HttpFunc) (ctx : HttpContext) ->
             let logger = ctx.GetLogger<ILogger>()
             task {
-                let response = {
-                    Text = "Todo, Todo, Todo,..."
-                }
-                logger.LogInformation("Todo, Todo, Todo,...")
-                return! json response next ctx
+                let todoService = ctx.GetService<ITodoService>()
+                let! result = todoService.GetAllTodos()
+                match result with
+                | Ok todos -> return! json todos next ctx
+                | Error err -> return! json (sprintf "Error: %A" err) next ctx
             }
             
-    let getTodoById (id: Guid) : HttpHandler =
+    let getTodoById (Id: Guid) : HttpHandler =
         fun (next : HttpFunc) (ctx : HttpContext) ->
             task {
-                let response = {
-                    Text = $"{id}"
-                }
-                return! json response next ctx
+                let todoService = ctx.GetService<ITodoService>()
+                let! result = todoService.GetTodoById(Id)
+                match result with
+                | Ok todo -> return! json todo next ctx
+                | Error err -> return! json (sprintf "Error: %A" err) next ctx
             }
             
     let updateTodoById (id: Guid) : HttpHandler =
@@ -64,7 +65,7 @@ module TodoHandlers =
             let todoService = ctx.GetService<ITodoService>()
             let! result = todoService.CreateTodo description.Text
             match result with
-            | Ok _ -> return! text "Todo created" next ctx
+            | Ok todo -> return! text $"Todo {todo.Id} created" next ctx
             | Error err -> return! json (sprintf "Error: %A" err) next ctx
         }
 
