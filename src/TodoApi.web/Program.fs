@@ -16,6 +16,13 @@ open TodoApi.Application
 open TodoApi.Infrastructure
 open Microsoft.OpenApi.Models
 
+// let jsonSettings =
+//     let settings = JsonSerializerSettings()
+//     settings.ContractResolver <- CamelCasePropertyNamesContractResolver() // camelCase JSON
+//     settings.Converters.Add(OptionConverter()) // Handle option types
+//     settings
+//     
+
 
 // ---------------------------------
 // Views
@@ -65,8 +72,7 @@ let webApp =
         ]
         POST >=>
             choose [
-                routef "/todo/%O" updateTodoById
-                route "/todo" >=> createTodo
+                route "/todo" >=> postTodo
             ]
         // DELETE >=>
         //     choose [

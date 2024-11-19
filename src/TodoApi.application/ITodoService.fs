@@ -6,7 +6,12 @@ open System
 
 type ITodoService =
     abstract member CreateTodo : string -> Async<Result<Todo, AppError>>
-    // abstract member DeleteTodoById : Guid -> Async<Result<Unit, AppError>>
-    abstract member GetTodoById : Guid -> Async<Result<Todo, AppError>>
+    abstract member RemoveTodo : Guid -> Async<Result<Unit, AppError>>
+    abstract member GetTodo : Guid -> Async<Result<Todo, AppError>>
     abstract member GetAllTodos: unit -> Async<Result<Todo list, AppError>>
-    // abstract member UpdateTodo: Todo -> Async<Result<Unit, AppError>>
+    abstract member GetCompletedTodos: unit -> Async<Result<Todo list, AppError>>
+    abstract member GetUncompletedTodos: unit -> Async<Result<Todo list, AppError>>
+    abstract member UpdateText: Guid -> string -> Async<Result<Todo, AppError>>
+    abstract member CompleteTodo: Guid -> Async<Result<Todo, AppError>>
+    abstract member DeCompleteTodo: Guid -> Async<Result<Todo, AppError>>
+    abstract member UpdateTodo: Todo -> Async<Result<Todo, AppError>>

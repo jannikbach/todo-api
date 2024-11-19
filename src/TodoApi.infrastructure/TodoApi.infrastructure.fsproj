@@ -12,8 +12,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="TodoRepository.fs" />
       <Folder Include="Data\" />
+      <Compile Include="FileHelpers.fs" />
+      <Compile Include="TodoRepository.fs" />
     </ItemGroup>
 
     <ItemGroup>
