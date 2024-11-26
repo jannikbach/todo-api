@@ -10,6 +10,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TodoApi.Web", "src\TodoApi.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TodoApi.tests", "tests\TodoApi.Tests\TodoApi.Tests.fsproj", "{B22F3B55-972E-4B85-BCE7-EBF3AED6AC22}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TodoApi.IntegrationTests", "tests\TodoApi.IntegrationTests\TodoApi.IntegrationTests.fsproj", "{8C13DD8E-2285-44AF-8B6B-36EC5CE4E2D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,13 @@ Global
 		{B22F3B55-972E-4B85-BCE7-EBF3AED6AC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B22F3B55-972E-4B85-BCE7-EBF3AED6AC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B22F3B55-972E-4B85-BCE7-EBF3AED6AC22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C13DD8E-2285-44AF-8B6B-36EC5CE4E2D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C13DD8E-2285-44AF-8B6B-36EC5CE4E2D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C13DD8E-2285-44AF-8B6B-36EC5CE4E2D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C13DD8E-2285-44AF-8B6B-36EC5CE4E2D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D383F1-13DE-40ED-A72F-9C8F789A1E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D383F1-13DE-40ED-A72F-9C8F789A1E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D383F1-13DE-40ED-A72F-9C8F789A1E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D383F1-13DE-40ED-A72F-9C8F789A1E95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -7,7 +7,7 @@ open TodoApi.Infrastructure.FileHelpers
 open System
 
 
-type TodoRepository (filePath: string) =
+type TodoFsRepository (filePath: string) =
     let loadTodos () = loadTodos filePath
 
     let saveTodos (todos: Todo list) = saveTodos filePath todos

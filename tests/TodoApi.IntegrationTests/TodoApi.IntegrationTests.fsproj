@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <RootNamespace>TodoApi.tests</RootNamespace>
 
         <IsPackable>false</IsPackable>
         <GenerateProgramFile>false</GenerateProgramFile>
@@ -10,7 +9,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="TodoServiceTests.fs" />
+        <ProjectReference Include="..\..\src\TodoApi.Core\TodoApi.Core.fsproj" />
+        <ProjectReference Include="..\..\src\TodoApi.Application\TodoApi.Application.fsproj" />
+        <ProjectReference Include="..\..\src\TodoApi.Infrastructure\TodoApi.Infrastructure.fsproj" />
+        <ProjectReference Include="..\..\src\TodoApi.Web\TodoApi.Web.fsproj" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <Compile Include="UnitTest1.fs"/>
+        <Compile Include="Program.fs"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -19,11 +27,6 @@
         <PackageReference Include="NUnit" Version="3.14.0"/>
         <PackageReference Include="NUnit.Analyzers" Version="3.9.0"/>
         <PackageReference Include="NUnit3TestAdapter" Version="4.5.0"/>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\src\TodoApi.Application\TodoApi.Application.fsproj" />
-      <ProjectReference Include="..\..\src\TodoApi.Core\TodoApi.Core.fsproj" />
     </ItemGroup>
 
 </Project>

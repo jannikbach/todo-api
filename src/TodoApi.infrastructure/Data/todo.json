@@ -1,5 +1,10 @@
 [
   {
+    "Id": "45ff5be0-3dd8-4d47-a9f4-da9cccdfab1c",
+    "Text": "moin",
+    "IsCompleted": false
+  },
+  {
     "Id": "f49e7719-f235-4f17-b5e3-bbca7606b3fe",
     "Text": "this is a todo!",
     "IsCompleted": false
