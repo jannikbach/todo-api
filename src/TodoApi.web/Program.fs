@@ -11,6 +11,7 @@ open Microsoft.Extensions.DependencyInjection
 open Giraffe
 open Giraffe.OpenApi
 open Giraffe.EndpointRouting
+open Giraffe.HttpStatusCodeHandlers.RequestErrors
 open Swashbuckle.AspNetCore.Swagger
 open TodoApi.Core.Model
 open TodoApi.Infrastructure
@@ -19,7 +20,6 @@ open TodoApi.Web.TodoHandlers.TodoHandlers
 open TodoApi.Core
 open TodoApi.Application
 open Microsoft.OpenApi.Models
-open TodoApi.Web.Operators
 
 
 
@@ -60,6 +60,7 @@ let indexHandler (name : string) =
     let view      = Views.index model
     htmlView view
 
+let notFoundHandler: HttpHandler = notFound (text "Not Found")
 
 let webApp =
       [
@@ -67,14 +68,14 @@ let webApp =
         GET [
                 route "/"  (redirectTo false "/swagger/index.html")
                 routef "/hello/%s" indexHandler |> addOpenApiSimple<string, string>
-                route "/todo" getTodos |> addOpenApiSimple<unit, Todo list>
-                routef "/todo/%O" getTodoById |> addOpenApiSimple<Guid, Todo>
+                route "/todos" getTodos |> addOpenApiSimple<unit, Todo list>
+                routef "/todos/%O" getTodoById |> addOpenApiSimple<Guid, Todo>
         ]
         POST [
-            route "/todo" postTodo |> addOpenApiSimple<Todo, Todo>
+            route "/todos" postTodo |> addOpenApiSimple<Todo, Todo>
         ]
         DELETE [
-            routef "/todo/%O" deleteTotoById |> addOpenApiSimple<Guid, string>
+            routef "/todos/%O" deleteTotoById |> addOpenApiSimple<Guid, string>
         ]
       ]
 
@@ -115,7 +116,8 @@ let configureApp (app: IApplicationBuilder) =
         .UseRouting() // Adds routing capabilities
         .UseSwagger() // Enables Swagger middleware for generating OpenAPI docs
         .UseSwaggerUI() |> ignore
-    app.UseGiraffe(webApp) |> ignore // Adds Giraffe's route handling middleware
+    app.UseGiraffe(webApp)
+        .UseGiraffe(notFoundHandler)|> ignore // Swagger dependencies // Adds Giraffe's route handling middleware
 
 let configureServices (services : IServiceCollection) =
     let baseDir = Directory.GetCurrentDirectory()
@@ -124,13 +126,13 @@ let configureServices (services : IServiceCollection) =
     services
         .AddHttpClient()
         .AddCors()
-        .AddGiraffe() |> ignore
-        
-    services.AddEndpointsApiExplorer()
+        .AddRouting()
+        .AddGiraffe()
+        .AddEndpointsApiExplorer()
         .AddSwaggerGen(fun option ->
-            option.SwaggerDoc("v1", OpenApiInfo(Title = "Todo API", Version = "v1"))) |> ignore
-
-    
+            option.SwaggerDoc("v1", OpenApiInfo(Title = "Todo API", Version = "v1")))
+    |> ignore
+        
     services.AddScoped<ITodoRepository>(fun _ -> TodoFsRepository(todoFilePath)) |> ignore
     services.AddScoped<ITodoService, TodoService>() |> ignore
     services.BuildServiceProvider()

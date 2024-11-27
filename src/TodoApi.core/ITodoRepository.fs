@@ -12,3 +12,7 @@ type ITodoRepository =
     abstract member GetAllTodos: unit -> Async<Result<Todo list, AppError>>
     abstract member UpdateTodo: Todo -> Async<Result<Todo, AppError>>
 
+
+type ITodoTestRepository =
+    inherit ITodoRepository
+    abstract member GetLatestTodo: unit -> Async<Option<Todo>>

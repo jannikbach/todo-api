@@ -1,4 +1,4 @@
-namespace TodoApi.Web.TodoHandlers
+module TodoApi.Web.TodoHandlers
 
 open System
 open Microsoft.Extensions.Logging
@@ -7,6 +7,15 @@ open TodoApi.Application
 open Newtonsoft.Json
 open System.IO
 open Microsoft.AspNetCore.Http
+
+
+let createGuid (input: string) =
+    try
+        Guid(input) // Parse the string to a Guid
+    with
+    | :? FormatException -> 
+        printfn "Invalid GUID format: %s" input
+        Guid.Empty // Return an empty Guid if the format is invalid
 
 type OptionConverter() =
     inherit JsonConverter()
