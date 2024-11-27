@@ -12,6 +12,9 @@ open TodoApi.Core.Model
 open TodoApi.Core.Errors
 open TodoApi.Application
 
+type ITodoTestRepository =
+    inherit ITodoRepository
+    abstract member GetLatestTodo: unit -> Async<Option<Todo>>
 
 
 type FakeTodoRepository() =
