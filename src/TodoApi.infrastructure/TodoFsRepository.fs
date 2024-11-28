@@ -1,11 +1,22 @@
-namespace TodoApi.Infrastructure
+module TodoApi.Infrastructure
 
 open TodoApi.Core
 open TodoApi.Core.Errors
 open TodoApi.Core.Model
-open TodoApi.Infrastructure.FileHelpers
 open System
+open System.IO
+open Newtonsoft.Json
 
+
+let loadTodos (filePath: string) : Todo list =
+    if File.Exists(filePath) then
+        let json = File.ReadAllText(filePath)
+        JsonConvert.DeserializeObject<Todo list>(json)
+    else
+        []
+let saveTodos (filePath: string) (todos: Todo list) =
+    let json = JsonConvert.SerializeObject(todos, Formatting.Indented)
+    File.WriteAllText(filePath, json)
 
 type TodoFsRepository (filePath: string) =
     let loadTodos () = loadTodos filePath

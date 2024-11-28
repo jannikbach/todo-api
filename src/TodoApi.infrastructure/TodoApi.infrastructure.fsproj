@@ -13,7 +13,6 @@
 
     <ItemGroup>
       <Folder Include="Data\" />
-      <Compile Include="FileHelpers.fs" />
       <Compile Include="TodoFsRepository.fs" />
     </ItemGroup>
 
